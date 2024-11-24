@@ -1,6 +1,3 @@
-### Revised and Comprehensive README.md
-
-```markdown
 # azure-ai-docanalyzer
 
 ## Project Overview
