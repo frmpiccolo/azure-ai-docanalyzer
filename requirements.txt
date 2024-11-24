@@ -1,0 +1,12 @@
+azure-storage-blob
+azure-storage-file-share
+azure-ai-formrecognizer
+flask
+python-dotenv
+pytest
+pytest-mock
+requests
+chardet 
+tabulate 
+python-barcode[images]
+

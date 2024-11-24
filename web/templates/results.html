@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analysis Results</title>
+</head>
+<body>
+    <h1>Document Analysis Results</h1>
+
+    <h2>Standard Fields</h2>
+    <ul>
+        {% for key, value in insights.standard_fields.items() %}
+        <li><strong>{{ key }}:</strong> {{ value.value }} (Confidence: {{ value.confidence }})</li>
+        {% endfor %}
+    </ul>
+
+    <h2>Custom Fields</h2>
+    <ul>
+        {% for key, value in insights.custom_fields.items() %}
+        <li><strong>{{ key }}:</strong> {{ value.value }} (Confidence: {{ value.confidence }})</li>
+        {% endfor %}
+    </ul>
+
+    <h2>Tables</h2>
+    {% for table in insights.tables %}
+    <table border="1">
+        {% for row in table.data %}
+        <tr>
+            {% for cell in row %}
+            <td>{{ cell }}</td>
+            {% endfor %}
+        </tr>
+        {% endfor %}
+    </table>
+    {% endfor %}
+
+    <h2>Barcodes</h2>
+    <ul>
+        {% for barcode in insights.barcodes %}
+        <li><strong>Type:</strong> {{ barcode.type }}, <strong>Value:</strong> {{ barcode.value }}</li>
+        {% endfor %}
+    </ul>
+
+    <h2>Images</h2>
+    <ul>
+        {% for image in insights.images %}
+        <li><strong>Caption:</strong> {{ image.caption }}</li>
+        {% endfor %}
+    </ul>
+
+    <a href="/">Analyze another document</a>
+</body>
+</html>
